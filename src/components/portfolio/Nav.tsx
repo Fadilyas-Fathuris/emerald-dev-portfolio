@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
+  { href: "#education", label: "Education" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#stack", label: "Stack" },
@@ -39,10 +39,10 @@ export function Nav() {
         >
           <a href="#hero" className="flex items-center gap-2 group">
             <div className="relative h-7 w-7 rounded-md bg-gradient-to-br from-primary to-emerald-soft grid place-items-center font-display font-bold text-primary-foreground text-sm shadow-[0_0_20px_oklch(0.78_0.17_158/0.5)]">
-              A
+              F
               <div className="absolute inset-0 rounded-md bg-primary/40 blur-md -z-10 group-hover:bg-primary/60 transition-colors" />
             </div>
-            <span className="font-display font-semibold tracking-tight">arnav<span className="text-primary">.</span></span>
+            <span className="font-display font-semibold tracking-tight">fadilyas<span className="text-primary">.</span></span>
           </a>
 
           <nav className="hidden md:flex items-center gap-1 text-sm">

@@ -32,14 +32,17 @@ export function Contact() {
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
-                  href="#"
+                  href="/Fadilyas_CV.pdf"
+                  download="Fadilyas_CV.pdf"
                   className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_158/0.6)] transition-all"
                 >
                   <Download size={16} />
                   Download CV (PDF)
                 </a>
                 <a
-                  href="#"
+                  href="/Fadilyas_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:border-primary/40 transition-colors"
                 >
                   <FileText size={16} />
@@ -63,7 +66,7 @@ export function Contact() {
                   ))}
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-                  <span>arnav_patel_cv.pdf</span>
+                  <span>Fadilyas_CV.pdf</span>
                   <span className="text-primary">1.2 MB</span>
                 </div>
               </div>
@@ -89,9 +92,9 @@ export function Contact() {
               </p>
               <div className="space-y-3 pt-4">
                 {[
-                  { icon: Mail, label: "arnav@portfolio.dev", href: "mailto:arnav@portfolio.dev" },
-                  { icon: Github, label: "github.com/arnav", href: "#" },
-                  { icon: Linkedin, label: "linkedin.com/in/arnav", href: "#" },
+                  { icon: Mail, label: "muhfadilyas@gmail.com", href: "mailto:muhfadilyas@gmail.com" },
+                  { icon: Github, label: "github.com/Fadilyas-Fathuris", href: "https://github.com/Fadilyas-Fathuris" },
+                  { icon: Linkedin, label: "linkedin.com/in/muhammad-fadilyas-fathuris-haryanto", href: "https://linkedin.com/in/muhammad-fadilyas-fathuris-haryanto" },
                 ].map((c) => (
                   <a
                     key={c.label}

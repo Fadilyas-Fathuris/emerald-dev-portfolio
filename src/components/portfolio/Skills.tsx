@@ -1,89 +1,63 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./About";
 
-const groups = [
+const education = [
   {
-    label: "Frontend",
-    items: [
-      { name: "Next.js", level: 92 },
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 88 },
-      { name: "Tailwind CSS", level: 96 },
-    ],
+    period: "2025 — Sekarang",
+    degree: "S1 Sistem Informasi (Program Ekstensi)",
+    school: "Telkom University, Bandung",
+    desc: "Mata kuliah terkait: Integrasi Aplikasi Enterprise, Sistem Operasi, Keamanan Sistem Informasi.",
   },
   {
-    label: "Backend",
-    items: [
-      { name: "Node.js", level: 90 },
-      { name: "Express", level: 88 },
-      { name: "Python · Flask", level: 82 },
-    ],
-  },
-  {
-    label: "Mobile",
-    items: [{ name: "Flutter", level: 85 }],
-  },
-  {
-    label: "Database",
-    items: [
-      { name: "PostgreSQL", level: 86 },
-      { name: "MySQL", level: 80 },
-    ],
-  },
-  {
-    label: "DevOps",
-    items: [
-      { name: "Docker", level: 84 },
-      { name: "Nginx · VPS", level: 80 },
-      { name: "GitHub Actions", level: 82 },
-    ],
+    period: "2022 — 2025",
+    degree: "D3 Sistem Informasi - IPK 3,79 (Cumlaude)",
+    school: "Telkom University, Bandung",
+    desc: "Mata kuliah terkait: Algoritma Pemrograman Komputer, Rekayasa Perangkat Lunak, Pengujian Perangkat Lunak, Pemrograman Web, Pemodelan Proses Bisnis, Pengolahan Basis Data, Implementasi Desain Pengalaman Pengguna, Implementasi Desain Antarmuka Pengguna, Perancangan Basis Data, Dasar Pemrograman Perangkat Bergerak, Pengembangan Aplikasi Berbasis Web, Pemrograman Perangkat Bergerak Lanjut.",
   },
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader kicker="02 · Skills" title="Tools I reach for" highlight="every day." />
+    <section id="education" className="relative py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionHeader kicker="02 · Education" title="Academic" highlight="background." />
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {groups.map((g, gi) => (
-            <motion.div
-              key={g.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: gi * 0.08 }}
-              className="group relative glass rounded-3xl p-6 hover:border-primary/30 transition-all overflow-hidden"
-            >
-              <div className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
-              <div className="relative">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="font-display font-semibold">{g.label}</div>
-                  <div className="text-xs font-mono text-muted-foreground">0{gi + 1}</div>
+        <div className="mt-16 relative">
+          <div className="absolute left-[15px] md:left-1/2 md:-translate-x-px top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+
+          <div className="space-y-12">
+            {education.map((it, i) => (
+              <motion.div
+                key={it.degree}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className={`relative grid md:grid-cols-2 gap-6 items-start ${
+                  i % 2 === 0 ? "" : "md:[direction:rtl]"
+                }`}
+              >
+                {/* dot */}
+                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-4 z-10">
+                  <div className="relative h-3 w-3 rounded-full bg-primary shadow-[0_0_20px_oklch(0.78_0.17_158/0.8)]">
+                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-60" />
+                  </div>
                 </div>
-                <div className="space-y-4">
-                  {g.items.map((s) => (
-                    <div key={s.name}>
-                      <div className="flex justify-between text-sm mb-1.5">
-                        <span className="text-foreground/90">{s.name}</span>
-                        <span className="text-muted-foreground font-mono text-xs">{s.level}%</span>
-                      </div>
-                      <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${s.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                          className="h-full rounded-full bg-gradient-to-r from-emerald-soft to-primary shadow-[0_0_12px_oklch(0.78_0.17_158/0.6)]"
-                        />
-                      </div>
-                    </div>
-                  ))}
+
+                <div className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12 [direction:ltr]"}`}>
+                  <div className="text-xs font-mono uppercase tracking-wider text-primary mb-1">{it.period}</div>
+                  <div className="font-display font-semibold text-xl">{it.degree}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5">{it.school}</div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12 [direction:ltr]"}`}>
+                  <div className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

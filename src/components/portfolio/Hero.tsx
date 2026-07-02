@@ -43,9 +43,9 @@ export function Hero() {
               transition={{ delay: 0.5, duration: 0.7 }}
               className="text-lg text-muted-foreground max-w-xl leading-relaxed"
             >
-              I'm <span className="text-foreground font-medium">Arnav Patel</span> — a Full Stack Developer & CS student
-              building production-grade web, mobile, and cloud systems with an
-              obsession for clean architecture and elegant UI.
+              Saya <span className="text-foreground font-medium">Muhammad Fadilyas</span> — seorang Web & Mobile Developer
+              dengan latar belakang Sistem Informasi. Berkomitmen untuk membangun aplikasi
+              yang efisien, terstruktur, dan bermanfaat.
             </motion.p>
           </div>
 
@@ -63,7 +63,8 @@ export function Hero() {
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a
-              href="#cv"
+              href="/Fadilyas_CV.pdf"
+              download="Fadilyas_CV.pdf"
               className="group inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-foreground hover:border-primary/40 transition-all"
             >
               <Download size={16} />
@@ -78,8 +79,8 @@ export function Hero() {
             className="flex items-center gap-8 pt-6 border-t border-border/50"
           >
             {[
-              { k: "20+", v: "Projects shipped" },
-              { k: "3+", v: "Years building" },
+              { k: "3+", v: "Projects shipped" },
+              { k: "1+", v: "Years building" },
               { k: "12+", v: "Technologies" },
             ].map((s) => (
               <div key={s.v}>
@@ -101,24 +102,9 @@ export function Hero() {
             <HeroScene />
           </div>
 
-          {/* floating chips */}
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-8 left-4 glass rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs"
-          >
-            <Sparkles size={14} className="text-primary" />
-            <span className="font-mono">build: passing</span>
-          </motion.div>
 
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-12 right-4 glass rounded-2xl px-4 py-2.5"
-          >
-            <div className="text-[10px] text-muted-foreground">Latency</div>
-            <div className="font-mono text-sm text-primary">42<span className="text-muted-foreground">ms</span></div>
-          </motion.div>
+
+
         </motion.div>
       </div>
 

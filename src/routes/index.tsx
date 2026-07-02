@@ -13,9 +13,9 @@ import { CursorGlow } from "@/components/portfolio/Cursor";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Arnav Patel — Full Stack Developer" },
-      { name: "description", content: "Full Stack Developer & CS student building scalable web, mobile, and cloud systems with clean architecture and cinematic UI." },
-      { property: "og:title", content: "Arnav Patel — Full Stack Developer" },
+      { title: "Fadilyas Fathuris — Full Stack Developer" },
+      { name: "description", content: "Web & Mobile Developer dengan latar belakang Sistem Informasi. Berkomitmen untuk membangun aplikasi yang efisien, terstruktur, dan bermanfaat." },
+      { property: "og:title", content: "Fadilyas Fathuris — Full Stack Developer" },
       { property: "og:description", content: "Portfolio of a Full Stack Developer crafting scalable, modern, production-grade applications." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

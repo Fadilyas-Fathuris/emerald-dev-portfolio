@@ -3,28 +3,22 @@ import { SectionHeader } from "./About";
 
 const items = [
   {
-    period: "2025 — Present",
-    role: "Full Stack Developer Intern",
-    org: "Helix Labs · Remote",
-    desc: "Shipping production features across a Next.js + Node.js stack, owning the migration to a typed API layer and improving page-load metrics by 38%.",
+    period: "Januari 2026 — Sekarang",
+    role: "Freelance IT Support",
+    org: "Language Center Telkom University, Bandung",
+    desc: "Mengelola setup perangkat teknis untuk tes English Proficiency, diagnosis dan penyelesaian masalah jaringan & hardware, serta memonitor kelancaran tes secara real-time.",
   },
   {
-    period: "2024 — 2025",
-    role: "Freelance Engineer",
-    org: "Independent",
-    desc: "Delivered 6 client projects: web apps, Flutter mobile MVPs, and self-hosted dashboards on VPS infrastructure with CI/CD via GitHub Actions.",
+    period: "Desember 2025 — Sekarang",
+    role: "Freelance Web Developer",
+    org: "Niskala Core ID, Bandung",
+    desc: "Membangun website Company Profile secara modern menggunakan Vite dan Typescript.",
   },
   {
-    period: "2023 — 2024",
-    role: "University Capstone Lead",
-    org: "B.Tech Computer Science",
-    desc: "Led a 4-person team building a real-time campus collaboration platform. Architected the Postgres schema and deployment pipeline. Top capstone in cohort.",
-  },
-  {
-    period: "2022 — 2023",
-    role: "Open-source Contributor",
-    org: "Various OSS Projects",
-    desc: "Merged PRs to React tooling and dev-ex libraries. Maintained a small TypeScript utility package with ~5k weekly downloads.",
+    period: "Agustus 2024 — Juli 2025",
+    role: "Fullstack Developer Intern",
+    org: "Bandung Techno Park, Bandung",
+    desc: "Membangun aplikasi Pengelolaan Bank Sampah dengan Flutter & Flask untuk warga Desa Lengkong, serta website presensi karyawan BTP menggunakan Laravel.",
   },
 ];
 
