@@ -22,7 +22,7 @@ const projects: Project[] = [
     desc: "Agregasi data pengajuan surat tingkat desa hingga kabupaten berbasis microservices.",
     long: "Membangun website berbasis microservices untuk agregasi data pengajuan surat tingkat desa hingga kabupaten. Menggunakan Next.js dan Typescript untuk Frontend, Laravel untuk Backend dan RabbitMQ untuk pengelolaan event message, serta implementasi infrastruktur pengembangan menggunakan Docker hingga deployment melalui VPS.",
     tech: ["Next.js", "TypeScript", "Laravel", "RabbitMQ", "Docker", "VPS"],
-    gradient: "from-emerald-500/30 via-teal-500/20 to-transparent",
+    gradient: "from-blue-500/30 via-indigo-500/20 to-transparent",
     demo: "#",
     github: "https://github.com/Fadilyas-Fathuris/Govconnect.git",
     image: "/govconnect-logo.png",
@@ -33,9 +33,9 @@ const projects: Project[] = [
     desc: "Platform analisis kesenjangan skill mahasiswa berbasis AI dari transkrip PDF.",
     long: "Platform analisis kesenjangan skill mahasiswa berbasis AI. Fitur utama mencakup parsing otomatis transkrip PDF, kalkulasi match score terhadap 10 job role di industri teknologi, dan generasi roadmap belajar personal menggunakan Gemini API. Dibangun dengan FastAPI, Next.js, MySQL, dan terintegrasi dengan web scraping Kalibrr.",
     tech: ["FastAPI", "Next.js", "MySQL", "Gemini API", "Python"],
-    gradient: "from-teal-500/30 via-emerald-500/20 to-transparent",
+    gradient: "from-indigo-500/30 via-blue-500/20 to-transparent",
     demo: "#",
-    github: "#",
+    github: "https://github.com/Fadilyas-Fathuris/showcase-edubridge.git",
     image: "/edubridge-logo.png",
   },
   {
@@ -44,10 +44,21 @@ const projects: Project[] = [
     desc: "Aplikasi Pengelolaan Bank Sampah untuk mendukung pengelolaan lingkungan warga Desa Lengkong.",
     long: "Membangun aplikasi Pengelolaan Bank Sampah bernama Aplikasi BSU menggunakan Flutter dan Python Flask. Diimplementasikan pada organisasi Ibu Rumah Tangga Desa Lengkong yang berjumlah 60+ Ibu Rumah Tangga.",
     tech: ["Flutter", "Dart", "Python", "Flask"],
-    gradient: "from-emerald-400/30 via-cyan-500/20 to-transparent",
+    gradient: "from-blue-400/30 via-sky-500/20 to-transparent",
     demo: "#",
-    github: "#",
+    github: "https://github.com/Fadilyas-Fathuris/showacase-bsu.git",
     image: "/bsu-apps.png",
+  },
+  {
+    title: "Al-Falah Event Management",
+    tag: "Web App",
+    desc: "Website untuk pengelolaan kegiatan pesantren",
+    long: "Membangun aplikasi pengelolaan kegiatan pesantren dengan fitur pendaftaran, pencatatan kehadiran, dan rekapitulasi kegiatan.",
+    tech: ["Laravel", "MySQL", "Tailwind CSS", "Next.Js", "HTML", "CSS", "Javascript"],
+    gradient: "from-blue-400/30 via-sky-500/20 to-transparent",
+    demo: "https://ppalfalah.id",
+    github: "https://github.com/Fadilyas-Fathuris/presensi-event-backend",
+    image: "/al-falah.png",
   },
 ];
 
@@ -59,7 +70,7 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader kicker="03 · Selected work" title="Projects with" highlight="real impact." />
 
-        <div className="mt-16 grid md:grid-cols-6 gap-5">
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
           {projects.map((p, i) => (
             <motion.button
               key={p.title}
@@ -70,11 +81,9 @@ export function Projects() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
-              className={`group relative text-left glass rounded-3xl overflow-hidden hover:border-primary/40 transition-all flex flex-col h-full ${
-                i === 0 ? "md:col-span-6" : "md:col-span-3"
-              }`}
+              className="group relative text-left glass rounded-3xl overflow-hidden hover:border-primary/40 transition-all flex flex-col h-full w-full"
             >
-              <div className={`relative overflow-hidden ${i === 0 ? "aspect-[16/10] md:aspect-[21/9]" : "aspect-[16/10]"}`}>
+              <div className="relative overflow-hidden aspect-[16/10]">
                 <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
                 <div className="absolute inset-0 grid-bg opacity-40" />
                 <div className="absolute inset-0 grid place-items-center">
@@ -161,7 +170,7 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <a href={active.demo} className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_158/0.5)] transition-shadow">
+                  <a href={active.demo} className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_250/0.5)] transition-shadow">
                     <ExternalLink size={14} /> Live demo
                   </a>
                   <a href={active.github} className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium hover:border-primary/40 transition-colors">

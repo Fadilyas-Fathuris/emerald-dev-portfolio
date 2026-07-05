@@ -45,7 +45,7 @@ export function Experience() {
               >
                 {/* dot */}
                 <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-4 z-10">
-                  <div className="relative h-3 w-3 rounded-full bg-primary shadow-[0_0_20px_oklch(0.78_0.17_158/0.8)]">
+                  <div className="relative h-3 w-3 rounded-full bg-primary shadow-[0_0_20px_oklch(0.78_0.17_250/0.8)]">
                     <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-60" />
                   </div>
                 </div>

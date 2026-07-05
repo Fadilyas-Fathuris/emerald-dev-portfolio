@@ -14,7 +14,7 @@ export function CursorGlow() {
       aria-hidden
       className="pointer-events-none fixed inset-0 z-[1] hidden md:block transition-opacity"
       style={{
-        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, oklch(0.78 0.17 158 / 0.06), transparent 40%)`,
+        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, oklch(0.78 0.17 250 / 0.06), transparent 40%)`,
       }}
     />
   );

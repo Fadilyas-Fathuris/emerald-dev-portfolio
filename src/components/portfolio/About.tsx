@@ -23,11 +23,11 @@ export function About() {
             className="lg:col-span-5 space-y-6"
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-emerald-soft/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-blue-soft/20" />
               <div className="absolute inset-0 grid-bg opacity-30" />
               {/* profile placeholder - ganti src dengan path foto Anda (misal: /profile.jpg) */}
               <div className="absolute inset-0 grid place-items-center">
-                <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-primary to-emerald-soft grid place-items-center font-display text-6xl font-bold text-primary-foreground shadow-[0_0_80px_oklch(0.78_0.17_158/0.4)] overflow-hidden">
+                <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-primary to-blue-soft grid place-items-center font-display text-6xl font-bold text-primary-foreground shadow-[0_0_80px_oklch(0.78_0.17_250/0.4)] overflow-hidden">
                   <span className="absolute inset-0 flex items-center justify-center z-0">F</span>
                   <img src="/profil_fadil.webp" alt="Profile" className="absolute inset-0 w-full h-full object-cover z-10" />
                 </div>
@@ -63,7 +63,7 @@ export function About() {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="glass rounded-2xl p-5 group hover:border-primary/30 transition-colors"
                 >
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary grid place-items-center mb-3 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_oklch(0.78_0.17_158/0.3)] transition-all">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary grid place-items-center mb-3 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_oklch(0.78_0.17_250/0.3)] transition-all">
                     <h.icon size={18} />
                   </div>
                   <div className="font-display font-semibold">{h.title}</div>
@@ -96,7 +96,7 @@ export function SectionHeader({ kicker, title, highlight }: { kicker: string; ti
         transition={{ duration: 0.6 }}
         className="font-display font-semibold tracking-tighter text-4xl sm:text-5xl"
       >
-        {title} <span className="text-gradient-emerald">{highlight}</span>
+        {title} <span className="text-gradient-blue">{highlight}</span>
       </motion.h2>
     </div>
   );

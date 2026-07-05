@@ -3,7 +3,7 @@ import { Float, Environment, MeshDistortMaterial } from "@react-three/drei";
 import { useRef, Suspense } from "react";
 import * as THREE from "three";
 
-function FloatingDevice({ position, rotation, scale = 1, color = "#10b981" }: {
+function FloatingDevice({ position, rotation, scale = 1, color = "#3b82f6" }: {
   position: [number, number, number];
   rotation: [number, number, number];
   scale?: number;
@@ -57,8 +57,8 @@ function HoloOrb() {
       <mesh ref={ref} position={[2.2, 1.2, 0]}>
         <icosahedronGeometry args={[0.55, 4]} />
         <MeshDistortMaterial
-          color="#34d399"
-          emissive="#10b981"
+          color="#60a5fa"
+          emissive="#3b82f6"
           emissiveIntensity={0.4}
           distort={0.35}
           speed={2}
@@ -101,7 +101,7 @@ function Particles({ count = 80 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.025} color="#34d399" transparent opacity={0.7} sizeAttenuation />
+      <pointsMaterial size={0.025} color="#60a5fa" transparent opacity={0.7} sizeAttenuation />
     </points>
   );
 }
@@ -115,14 +115,14 @@ export function HeroScene() {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
-        <pointLight position={[5, 5, 5]} intensity={1.2} color="#34d399" />
-        <pointLight position={[-4, -2, 3]} intensity={0.8} color="#10b981" />
+        <pointLight position={[5, 5, 5]} intensity={1.2} color="#60a5fa" />
+        <pointLight position={[-4, -2, 3]} intensity={0.8} color="#3b82f6" />
         <spotLight position={[0, 5, 2]} intensity={0.6} angle={0.4} penumbra={1} />
 
-        <FloatingDevice position={[0, -0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={1} color="#10b981" />
+        <FloatingDevice position={[0, -0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={1} color="#3b82f6" />
         <HoloOrb />
-        <HoloRing position={[-2.2, -0.8, 0.5]} radius={0.4} color="#34d399" />
-        <HoloRing position={[2.3, -1.2, -0.5]} radius={0.25} color="#10b981" />
+        <HoloRing position={[-2.2, -0.8, 0.5]} radius={0.4} color="#60a5fa" />
+        <HoloRing position={[2.3, -1.2, -0.5]} radius={0.25} color="#3b82f6" />
         <Particles count={120} />
 
         <Environment preset="night" />

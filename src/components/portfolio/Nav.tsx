@@ -38,7 +38,7 @@ export function Nav() {
           }`}
         >
           <a href="#hero" className="flex items-center gap-2 group">
-            <div className="relative h-7 w-7 rounded-md bg-gradient-to-br from-primary to-emerald-soft grid place-items-center font-display font-bold text-primary-foreground text-sm shadow-[0_0_20px_oklch(0.78_0.17_158/0.5)]">
+            <div className="relative h-7 w-7 rounded-md bg-gradient-to-br from-primary to-blue-soft grid place-items-center font-display font-bold text-primary-foreground text-sm shadow-[0_0_20px_oklch(0.78_0.17_250/0.5)]">
               F
               <div className="absolute inset-0 rounded-md bg-primary/40 blur-md -z-10 group-hover:bg-primary/60 transition-colors" />
             </div>
@@ -60,7 +60,7 @@ export function Nav() {
 
           <a
             href="#contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_158/0.5)] transition-shadow"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_250/0.5)] transition-shadow"
           >
             Hire me
           </a>

@@ -32,7 +32,7 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-semibold tracking-tighter text-[clamp(2.5rem,6vw,4.75rem)] leading-[1.02]"
             >
-              Crafting <span className="text-gradient-emerald">scalable</span><br />
+              Crafting <span className="text-gradient-blue">scalable</span><br />
               experiences for the<br />
               modern web.
             </motion.h1>
@@ -57,7 +57,7 @@ export function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_158/0.6)] transition-all"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
             >
               View Projects
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -79,8 +79,8 @@ export function Hero() {
             className="flex items-center gap-8 pt-6 border-t border-border/50"
           >
             {[
-              { k: "3+", v: "Projects shipped" },
-              { k: "1+", v: "Years building" },
+              { k: "4+", v: "Projects shipped" },
+              { k: "2+", v: "Years building" },
               { k: "12+", v: "Technologies" },
             ].map((s) => (
               <div key={s.v}>

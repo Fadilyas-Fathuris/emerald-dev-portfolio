@@ -25,7 +25,7 @@ export function Contact() {
             <div className="space-y-4">
               <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary">06 · For recruiters</div>
               <h2 className="font-display text-4xl sm:text-5xl font-semibold tracking-tighter">
-                The full <span className="text-gradient-emerald">resume</span>, one click away.
+                The full <span className="text-gradient-blue">resume</span>, one click away.
               </h2>
               <p className="text-muted-foreground">
                 A clean, one-page PDF with experience, education, and the technical stack — formatted for ATS and humans alike.
@@ -34,7 +34,7 @@ export function Contact() {
                 <a
                   href="/Fadilyas_CV.pdf"
                   download="Fadilyas_CV.pdf"
-                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_158/0.6)] transition-all"
+                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
                 >
                   <Download size={16} />
                   Download CV (PDF)
@@ -101,7 +101,7 @@ export function Contact() {
                     href={c.href}
                     className="group flex items-center gap-3 glass rounded-2xl px-4 py-3 hover:border-primary/40 transition-all"
                   >
-                    <div className="h-9 w-9 rounded-xl bg-primary/10 text-primary grid place-items-center group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_oklch(0.78_0.17_158/0.3)] transition-all">
+                    <div className="h-9 w-9 rounded-xl bg-primary/10 text-primary grid place-items-center group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_oklch(0.78_0.17_250/0.3)] transition-all">
                       <c.icon size={16} />
                     </div>
                     <span className="text-sm">{c.label}</span>
@@ -138,7 +138,7 @@ export function Contact() {
               </div>
               <button
                 type="submit"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_158/0.6)] transition-all"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
               >
                 {sent ? "Message sent ✦" : <>Send message <Send size={14} className="group-hover:translate-x-0.5 transition-transform" /></>}
               </button>
