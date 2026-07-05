@@ -32,15 +32,15 @@ export function Contact() {
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
-                  href="/Fadilyas_CV.pdf"
-                  download="Fadilyas_CV.pdf"
+                  href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
+                  download="CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
                   className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
                 >
                   <Download size={16} />
                   Download CV (PDF)
                 </a>
                 <a
-                  href="/Fadilyas_CV.pdf"
+                  href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:border-primary/40 transition-colors"

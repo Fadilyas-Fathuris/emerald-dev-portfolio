@@ -63,8 +63,8 @@ export function Hero() {
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a
-              href="/Fadilyas_CV.pdf"
-              download="Fadilyas_CV.pdf"
+              href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
+              download="CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
               className="group inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-foreground hover:border-primary/40 transition-all"
             >
               <Download size={16} />
