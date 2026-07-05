@@ -20,6 +20,19 @@ jobs:
           script: |
             set -e
 
+            echo "Load Node environment"
+
+            export NVM_DIR="$HOME/.nvm"
+            source "$NVM_DIR/nvm.sh"
+
+            nvm use 22
+
+            echo "Node:"
+            node -v
+
+            echo "NPM:"
+            npm -v
+
             cd /var/www/emerald-dev-portfolio
 
             echo "Pull latest code"
@@ -31,20 +44,24 @@ jobs:
 
             npm ci --include=optional
 
+            echo "Remove old build"
+
+            rm -rf dist
+
             echo "Build project"
 
             export NODE_OPTIONS="--max-old-space-size=4096"
 
             npm run build
 
-            echo "Validate build"
+            echo "Check build output"
 
             test -f dist/server/index.mjs
 
-            echo "Restart application"
+            echo "Restart PM2"
 
             pm2 restart emerald-portfolio --update-env
 
             pm2 save
 
-            echo "Deployment success"
+            echo "Deploy success"
