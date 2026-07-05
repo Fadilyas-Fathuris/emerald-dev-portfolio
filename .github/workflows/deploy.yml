@@ -20,9 +20,19 @@ jobs:
           script: |
             cd /var/www/emerald-dev-portfolio
 
+            echo "pull latest code"
+
+            git reset --hard
+
             git pull origin main
 
-            npm install
+            echo "install dependencies"
+
+            npm ci
+
+            echo "remove old build"
+
+            rm -rf .output
 
             export NODE_OPTIONS="--max-old-space-size=4096"
 
