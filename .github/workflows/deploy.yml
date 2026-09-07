@@ -60,7 +60,7 @@ jobs:
 
             echo "Restart PM2"
 
-            pm2 restart emerald-portfolio --update-env
+            pm2 restart emerald-portfolio --update-env || pm2 start dist/server/index.mjs --name emerald-portfolio
 
             pm2 save
 
