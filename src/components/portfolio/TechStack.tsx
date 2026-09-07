@@ -1,59 +1,71 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./About";
 
-const stack = [
-  { name: "Next.js", cat: "Frontend" },
-  { name: "React", cat: "Frontend" },
-  { name: "TypeScript", cat: "Language" },
-  { name: "JavaScript", cat: "Language" },
-  { name: "Laravel", cat: "Backend" },
-  { name: "PHP", cat: "Language" },
-  { name: "Python", cat: "Language" },
-  { name: "Flask", cat: "Backend" },
-  { name: "Flutter", cat: "Mobile" },
-  { name: "Dart", cat: "Language" },
-  { name: "PostgreSQL", cat: "Database" },
-  { name: "MySQL", cat: "Database" },
-  { name: "Figma", cat: "Tools" },
-  { name: "Draw.io", cat: "Tools" },
-  { name: "YED Graph", cat: "Tools" },
+const categories = [
+  {
+    name: "Frontend & Web",
+    items: ["Next.js", "React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5/CSS3"],
+  },
+  {
+    name: "Backend & APIs",
+    items: ["Laravel", "PHP", "FastAPI", "Python", "Flask", "Node.js"],
+  },
+  {
+    name: "Mobile Development",
+    items: ["Flutter", "Dart", "Cross-Platform UI", "State Management"],
+  },
+  {
+    name: "Data & Messaging",
+    items: ["PostgreSQL", "MySQL", "RabbitMQ", "Database Modeling"],
+  },
+  {
+    name: "DevOps & Tools",
+    items: ["Docker", "Linux VPS", "Git/GitHub", "Figma", "Draw.io", "YED Graph"],
+  },
 ];
 
 export function TechStack() {
   return (
-    <section id="stack" className="relative py-32">
+    <section id="stack" className="relative py-28 border-t border-white/5">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader kicker="05 · Tech stack" title="The full" highlight="toolkit." />
+        <SectionHeader
+          kicker="Technical Stack"
+          title="Tools and technologies"
+          highlight="mastered in practice."
+        />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-16 relative glass rounded-3xl p-8 md:p-12 overflow-hidden"
-        >
-          <div className="absolute inset-0 grid-bg opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
-          <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-blue-soft/10 pointer-events-none" />
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((cat, idx) => (
+            <motion.div
+              key={cat.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="p-6 rounded-2xl bg-[#12141c] border border-white/5 hover:border-white/10 transition-all space-y-4"
+            >
+              <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                <h3 className="font-display font-medium text-sm text-foreground">
+                  {cat.name}
+                </h3>
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  0{idx + 1}
+                </span>
+              </div>
 
-          <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {stack.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                whileHover={{ y: -4, scale: 1.04 }}
-                className="group relative aspect-square rounded-2xl glass flex flex-col items-center justify-center text-center p-3 cursor-pointer hover:border-primary/40 transition-colors"
-              >
-                <div className="absolute inset-0 rounded-2xl bg-primary/0 group-hover:bg-primary/5 transition-colors" />
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_30px_oklch(0.78_0.17_250/0.3)_inset]" />
-                <div className="relative font-display font-semibold text-sm md:text-base">{t.name}</div>
-                <div className="relative text-[10px] font-mono uppercase tracking-wider text-muted-foreground mt-1">{t.cat}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.06] border border-white/5 text-xs text-foreground/80 font-mono transition-colors"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

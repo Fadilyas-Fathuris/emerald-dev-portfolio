@@ -1,63 +1,74 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./About";
+import { GraduationCap, Award } from "lucide-react";
 
 const education = [
   {
     period: "2025 — Sekarang",
     degree: "S1 Sistem Informasi (Program Ekstensi)",
     school: "Telkom University, Bandung",
-    desc: "Mata kuliah terkait: Integrasi Aplikasi Enterprise, Sistem Operasi, Keamanan Sistem Informasi.",
+    status: "Sedang Berjalan",
+    desc: "Fokus studi: Integrasi Aplikasi Enterprise (EAI), Arsitektur Sistem Operasi, Analisis Keamanan Sistem Informasi, dan Manajemen Layanan TI.",
   },
   {
     period: "2022 — 2025",
-    degree: "D3 Sistem Informasi - IPK 3,79 (Cumlaude)",
+    degree: "D3 Sistem Informasi",
     school: "Telkom University, Bandung",
-    desc: "Mata kuliah terkait: Algoritma Pemrograman Komputer, Rekayasa Perangkat Lunak, Pengujian Perangkat Lunak, Pemrograman Web, Pemodelan Proses Bisnis, Pengolahan Basis Data, Implementasi Desain Pengalaman Pengguna, Implementasi Desain Antarmuka Pengguna, Perancangan Basis Data, Dasar Pemrograman Perangkat Bergerak, Pengembangan Aplikasi Berbasis Web, Pemrograman Perangkat Bergerak Lanjut.",
+    status: "IPK 3,79 · Cumlaude",
+    isHonors: true,
+    desc: "Mempelajari fundamental rekayasa perangkat lunak, perancangan basis data relasional, algoritma pemrograman, pengembangan aplikasi web & mobile lanjut, serta implementasi UI/UX.",
   },
 ];
 
 export function Skills() {
   return (
-    <section id="education" className="relative py-32">
+    <section id="education" className="relative py-28 border-t border-white/5">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeader kicker="02 · Education" title="Academic" highlight="background." />
+        <SectionHeader
+          kicker="Education"
+          title="Academic foundation"
+          highlight="and theoretical rigor."
+        />
 
-        <div className="mt-16 relative">
-          <div className="absolute left-[15px] md:left-1/2 md:-translate-x-px top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+        <div className="mt-16 space-y-6">
+          {education.map((it, i) => (
+            <motion.div
+              key={it.degree}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 sm:p-8 rounded-2xl bg-[#12141c] border border-white/5 hover:border-white/10 transition-all grid md:grid-cols-12 gap-6 items-start"
+            >
+              {/* Left Column: Period & Degree */}
+              <div className="md:col-span-5 space-y-2">
+                <div className="text-xs font-mono text-muted-foreground">
+                  {it.period}
+                </div>
+                <h3 className="font-display font-semibold text-lg text-foreground leading-snug">
+                  {it.degree}
+                </h3>
+                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <GraduationCap size={14} className="text-primary" />
+                  {it.school}
+                </div>
 
-          <div className="space-y-12">
-            {education.map((it, i) => (
-              <motion.div
-                key={it.degree}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className={`relative grid md:grid-cols-2 gap-6 items-start ${
-                  i % 2 === 0 ? "" : "md:[direction:rtl]"
-                }`}
-              >
-                {/* dot */}
-                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-4 z-10">
-                  <div className="relative h-3 w-3 rounded-full bg-primary shadow-[0_0_20px_oklch(0.78_0.17_250/0.8)]">
-                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-60" />
+                {it.isHonors && (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary text-[11px] font-mono mt-2">
+                    <Award size={12} />
+                    {it.status}
                   </div>
-                </div>
+                )}
+              </div>
 
-                <div className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12 [direction:ltr]"}`}>
-                  <div className="text-xs font-mono uppercase tracking-wider text-primary mb-1">{it.period}</div>
-                  <div className="font-display font-semibold text-xl">{it.degree}</div>
-                  <div className="text-sm text-muted-foreground mt-0.5">{it.school}</div>
-                </div>
-
-                <div className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12 [direction:ltr]"}`}>
-                  <div className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              {/* Right Column: Description & Coursework */}
+              <div className="md:col-span-7">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {it.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

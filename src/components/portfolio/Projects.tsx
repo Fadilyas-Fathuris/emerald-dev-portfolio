@@ -1,15 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react";
 import { SectionHeader } from "./About";
 
-type Project = {
+export type Project = {
+  id: string;
   title: string;
   tag: string;
-  desc: string;
+  desc: string;      // 1. Deskripsi projek
+  problem: string;   // 2. Masalah yang dihadapi
+  solution: string;  // 3. Solusi yang diberikan dari sistem
+  impact: string;    // 4. Bagaimana dampaknya
   tech: string[];
-  long: string;
-  gradient: string;
   demo?: string;
   github?: string;
   image?: string;
@@ -17,45 +19,53 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "govconnect",
     title: "GovConnect",
-    tag: "Microservices Web App",
-    desc: "Agregasi data pengajuan surat tingkat desa hingga kabupaten berbasis microservices.",
-    long: "Membangun website berbasis microservices untuk agregasi data pengajuan surat tingkat desa hingga kabupaten. Menggunakan Next.js dan Typescript untuk Frontend, Laravel untuk Backend dan RabbitMQ untuk pengelolaan event message, serta implementasi infrastruktur pengembangan menggunakan Docker hingga deployment melalui VPS.",
+    tag: "Microservices Architecture",
+    desc: "Platform berbasis Microservices untuk otomatisasi dan agregasi data pengajuan surat berjenjang dari tingkat desa hingga kabupaten secara terintegrasi.",
+    problem: "Pengajuan surat antar-instansi (Desa → Kecamatan → Kabupaten) sebelumnya diproses manual secara berjenjang, memakan waktu hingga beberapa hari, rentan terhadap kehilangan berkas fisik, dan ketiadaan sistem pelacakan status yang transparan.",
+    solution: "Merancang dan mengimplementasikan arsitektur Microservices terdistribusi. Antarmuka web responsif dibangun menggunakan Next.js & TypeScript, layanan backend modular dengan Laravel API, pengelolaan asynchronous event message menggunakan RabbitMQ, serta standardisasi deployment menggunakan Docker di VPS Linux.",
+    impact: "Memangkas waktu pemrosesan berkas berjenjang hingga 70%, menjamin sinkronisasi data instansi secara real-time, dan memberikan transparansi penuh tracking pengajuan bagi masyarakat.",
     tech: ["Next.js", "TypeScript", "Laravel", "RabbitMQ", "Docker", "VPS"],
-    gradient: "from-blue-500/30 via-indigo-500/20 to-transparent",
     demo: "#",
     github: "https://github.com/Fadilyas-Fathuris/Govconnect.git",
     image: "/govconnect-logo.png",
   },
   {
+    id: "skill-gap-ai",
     title: "Skill Gap Analyzer AI",
-    tag: "AI Platform",
-    desc: "Platform analisis kesenjangan skill mahasiswa berbasis AI dari transkrip PDF.",
-    long: "Platform analisis kesenjangan skill mahasiswa berbasis AI. Fitur utama mencakup parsing otomatis transkrip PDF, kalkulasi match score terhadap 10 job role di industri teknologi, dan generasi roadmap belajar personal menggunakan Gemini API. Dibangun dengan FastAPI, Next.js, MySQL, dan terintegrasi dengan web scraping Kalibrr.",
-    tech: ["FastAPI", "Next.js", "MySQL", "Gemini API", "Python"],
-    gradient: "from-indigo-500/30 via-blue-500/20 to-transparent",
+    tag: "AI & Data Engineering",
+    desc: "Platform cerdas yang menganalisis transkrip akademis mahasiswa dalam format PDF dan memetakannya secara objektif terhadap standar kualifikasi industri IT terkini.",
+    problem: "Mahasiswa sering kali kesulitan mengetahui secara objektif apakah kurikulum dan keahlian yang mereka pelajari di kampus telah sesuai dengan kriteria yang dicari industri teknologi saat ini.",
+    solution: "Membangun sistem parsing otomatis berkas PDF menggunakan Python FastAPI, modul web scraping Kalibrr untuk menarik data lowongan kerja aktual, algoritma kalkulasi Match Score terhadap 10 job role teknologi, serta integrasi Gemini API untuk merumuskan roadmap belajar personal.",
+    impact: "Membantu mahasiswa mengidentifikasi kesenjangan kompetensi secara instan dan memberikan rekomendasi pembelajaran yang spesifik serta terarah sesuai kebutuhan pasar kerja.",
+    tech: ["FastAPI", "Next.js", "Python", "MySQL", "Gemini API"],
     demo: "#",
     github: "https://github.com/Fadilyas-Fathuris/showcase-edubridge.git",
     image: "/edubridge-logo.png",
   },
   {
-    title: "BSU Mobile Apps",
-    tag: "Mobile App",
-    desc: "Aplikasi Pengelolaan Bank Sampah untuk mendukung pengelolaan lingkungan warga Desa Lengkong.",
-    long: "Membangun aplikasi Pengelolaan Bank Sampah bernama Aplikasi BSU menggunakan Flutter dan Python Flask. Diimplementasikan pada organisasi Ibu Rumah Tangga Desa Lengkong yang berjumlah 60+ Ibu Rumah Tangga.",
-    tech: ["Flutter", "Dart", "Python", "Flask"],
-    gradient: "from-blue-400/30 via-sky-500/20 to-transparent",
+    id: "bsu-mobile",
+    title: "BSU Mobile Application",
+    tag: "Mobile Engineering",
+    desc: "Aplikasi mobile pengelolaan Bank Sampah berbasis komunitas warga untuk digitalisasi pencatatan dan peningkatan transparansi kas di Desa Lengkong.",
+    problem: "Pencatatan setoran sampah warga, kalkulasi berat, dan pembaruan saldo tabungan kas organisasi Ibu Rumah Tangga masih dilakukan secara manual pada buku kas fisik yang rentan salah hitung dan hilang.",
+    solution: "Mengembangkan aplikasi mobile cross-platform menggunakan Flutter & Dart yang terintegrasi dengan RESTful API Python Flask dan basis data MySQL. Dilengkapi fitur kalkulasi saldo otomatis, rekapitulasi setoran sampah, serta mutasi transaksi transparan.",
+    impact: "Diimplementasikan langsung pada organisasi Ibu Rumah Tangga Desa Lengkong (60+ pengguna aktif), mengeliminasi kesalahan pencatatan manual hingga 100%, serta meningkatkan keaktifan warga dalam program bank sampah.",
+    tech: ["Flutter", "Dart", "Python", "Flask", "MySQL"],
     demo: "#",
     github: "https://github.com/Fadilyas-Fathuris/showacase-bsu.git",
     image: "/bsu-apps.png",
   },
   {
+    id: "al-falah",
     title: "Al-Falah Event Management",
-    tag: "Web App",
-    desc: "Website untuk pengelolaan kegiatan pesantren",
-    long: "Membangun aplikasi pengelolaan kegiatan pesantren dengan fitur pendaftaran, pencatatan kehadiran, dan rekapitulasi kegiatan.",
-    tech: ["Laravel", "MySQL", "Tailwind CSS", "Next.Js", "HTML", "CSS", "Javascript"],
-    gradient: "from-blue-400/30 via-sky-500/20 to-transparent",
+    tag: "Web Application",
+    desc: "Sistem informasi manajemen kegiatan dan presensi terpadu untuk monitoring kehadiran santri dan rekapitulasi kegiatan berkala di Pesantren Al-Falah.",
+    problem: "Pencatatan kehadiran ratusan santri pada kegiatan rutin masih manual menggunakan lembar presensi fisik, memperlambat proses rekapitulasi dan menyulitkan pengurus dalam mengevaluasi kedisiplinan.",
+    solution: "Membangun portal web terintegrasi berbasis Laravel, Next.js, dan Tailwind CSS. Dilengkapi sistem presensi otomatis berbasis timestamp terverifikasi, manajemen pendaftaran kegiatan, serta modul analitik kehadiran santri.",
+    impact: "Mempercepat proses rekapitulasi kehadiran dari hitungan jam menjadi instan dalam hitungan detik, serta meningkatkan akurasi data presensi pesantren secara menyeluruh.",
+    tech: ["Laravel", "Next.js", "TypeScript", "MySQL", "Tailwind CSS"],
     demo: "https://ppalfalah.id",
     github: "https://github.com/Fadilyas-Fathuris/presensi-event-backend",
     image: "/al-falah.png",
@@ -66,59 +76,108 @@ export function Projects() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative py-32">
+    <section id="projects" className="relative py-28 border-t border-white/5">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader kicker="03 · Selected work" title="Projects with" highlight="real impact." />
+        <SectionHeader
+          kicker="Case Studies"
+          title="Selected engineering work"
+          highlight="with end-to-end narratives."
+        />
 
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
+        {/* Projects Grid */}
+        <div className="mt-16 grid lg:grid-cols-2 gap-8">
           {projects.map((p, i) => (
-            <motion.button
-              key={p.title}
-              type="button"
-              onClick={() => setActive(p)}
-              initial={{ opacity: 0, y: 40 }}
+            <motion.div
+              key={p.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6 }}
-              className="group relative text-left glass rounded-3xl overflow-hidden hover:border-primary/40 transition-all flex flex-col h-full w-full"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group bg-[#12141c] rounded-2xl border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between overflow-hidden"
             >
-              <div className="relative overflow-hidden aspect-[16/10]">
-                <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-                <div className="absolute inset-0 grid-bg opacity-40" />
-                <div className="absolute inset-0 grid place-items-center">
-                  {p.image ? (
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-                  ) : (
-                    <div className="font-display text-6xl md:text-7xl font-bold text-foreground/10 group-hover:text-foreground/20 transition-colors">
-                      {p.title.split(" ")[0]}
-                    </div>
-                  )}
-                </div>
-                <div className="absolute top-4 left-4 glass rounded-full px-3 py-1 text-[10px] font-mono uppercase tracking-wider">
+              {/* Image Preview Header */}
+              <div className="relative aspect-[16/9] bg-black/40 border-b border-white/5 overflow-hidden flex items-center justify-center p-6">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <span className="font-display text-4xl font-bold text-white/10">
+                    {p.title}
+                  </span>
+                )}
+                <div className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-[#12141c]/90 border border-white/10 text-[11px] font-mono text-primary">
                   {p.tag}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
               </div>
-              <div className="p-6 space-y-3 flex-1 flex flex-col">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-1" />
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 space-y-6 flex-1 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-display font-semibold text-xl text-foreground group-hover:text-primary transition-colors">
+                      {p.title}
+                    </h3>
+                  </div>
+
+                  {/* 1. Deskripsi */}
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {p.desc}
+                  </p>
+
+                  {/* Minimalist 3-Part Highlights */}
+                  <div className="space-y-2 pt-2 border-t border-white/5 text-xs">
+                    <div className="grid grid-cols-12 gap-2 py-1">
+                      <span className="col-span-3 font-mono text-muted-foreground text-[11px]">Tantangan</span>
+                      <span className="col-span-9 text-foreground/80 line-clamp-2 leading-relaxed">{p.problem}</span>
+                    </div>
+                    <div className="grid grid-cols-12 gap-2 py-1">
+                      <span className="col-span-3 font-mono text-muted-foreground text-[11px]">Solusi</span>
+                      <span className="col-span-9 text-foreground/80 line-clamp-2 leading-relaxed">{p.solution}</span>
+                    </div>
+                    <div className="grid grid-cols-12 gap-2 py-1">
+                      <span className="col-span-3 font-mono text-primary text-[11px]">Dampak</span>
+                      <span className="col-span-9 text-primary/90 font-medium line-clamp-2 leading-relaxed">{p.impact}</span>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-2">{p.desc}</p>
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {p.tech.slice(0, 4).map((t) => (
-                    <span key={t} className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md bg-white/5 text-muted-foreground border border-white/5">
-                      {t}
-                    </span>
-                  ))}
+
+                {/* Footer Tech Stack & Trigger */}
+                <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.tech.slice(0, 3).map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 rounded bg-white/5 text-muted-foreground font-mono text-[10px]"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    {p.tech.length > 3 && (
+                      <span className="px-1.5 py-0.5 text-muted-foreground/60 font-mono text-[10px]">
+                        +{p.tech.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setActive(p)}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    Detail Studi Kasus
+                    <ArrowUpRight size={14} />
+                  </button>
                 </div>
               </div>
-            </motion.button>
+            </motion.div>
           ))}
         </div>
       </div>
 
+      {/* Case Study Detail Modal */}
       <AnimatePresence>
         {active && (
           <motion.div
@@ -126,56 +185,126 @@ export function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
-            className="fixed inset-0 z-[80] grid place-items-center p-4 bg-background/80 backdrop-blur-xl overflow-y-auto"
+            className="fixed inset-0 z-[80] grid place-items-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              initial={{ opacity: 0, scale: 0.98, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, scale: 0.98, y: 12 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl glass-strong rounded-3xl overflow-hidden my-auto"
+              className="relative w-full max-w-3xl bg-[#12141c] border border-white/10 rounded-2xl overflow-hidden my-auto shadow-2xl"
             >
+              {/* Close Button */}
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-4 right-4 z-10 h-9 w-9 rounded-full glass grid place-items-center hover:bg-white/10 transition-colors"
-                aria-label="Close"
+                className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Close modal"
               >
-                <X size={16} />
+                <X size={15} />
               </button>
-              {active.image ? (
-                <div className={`relative w-full h-64 md:h-80 bg-gradient-to-br ${active.gradient} flex items-center justify-center p-6 overflow-hidden`}>
-                  <div className="absolute inset-0 grid-bg opacity-40" />
-                  <img src={active.image} alt={active.title} className="relative z-10 max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+
+              {/* Modal Visual Banner */}
+              <div className="relative w-full h-48 sm:h-56 bg-black/40 border-b border-white/5 flex items-center justify-center p-6">
+                {active.image ? (
+                  <img
+                    src={active.image}
+                    alt={active.title}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                ) : (
+                  <span className="font-display text-4xl font-bold text-white/20">
+                    {active.title}
+                  </span>
+                )}
+                <div className="absolute bottom-4 left-6 px-3 py-1 rounded-md bg-[#12141c]/90 border border-white/10 text-xs font-mono text-primary">
+                  {active.tag}
                 </div>
-              ) : (
-                <div className={`relative aspect-[16/8] bg-gradient-to-br ${active.gradient}`}>
-                  <div className="absolute inset-0 grid-bg opacity-40" />
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="font-display text-7xl font-bold text-foreground/15">{active.title.split(" ")[0]}</div>
+              </div>
+
+              {/* Modal Story Content */}
+              <div className="p-6 sm:p-8 space-y-8 max-h-[60vh] overflow-y-auto">
+                <div className="space-y-2">
+                  <h3 className="font-display font-semibold text-2xl text-foreground">
+                    {active.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {active.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-0.5 rounded bg-white/5 border border-white/5 text-muted-foreground font-mono text-xs"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              )}
-              <div className="p-8 space-y-5">
-                <div>
-                  <div className="text-xs font-mono uppercase tracking-wider text-primary mb-2">{active.tag}</div>
-                  <h3 className="font-display text-3xl font-semibold">{active.title}</h3>
+
+                {/* 4-Step Narrative Layout */}
+                <div className="space-y-6 pt-2 border-t border-white/5">
+                  {/* Step 1: Deskripsi */}
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-medium">
+                      01 · Ringkasan & Ruang Lingkup
+                    </div>
+                    <p className="text-sm text-foreground/90 leading-relaxed">
+                      {active.desc}
+                    </p>
+                  </div>
+
+                  {/* Step 2: Masalah */}
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-medium">
+                      02 · Masalah & Tantangan
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-sm text-foreground/90 leading-relaxed">
+                      {active.problem}
+                    </div>
+                  </div>
+
+                  {/* Step 3: Solusi */}
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-medium">
+                      03 · Solusi Sistem & Arsitektur
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-sm text-foreground/90 leading-relaxed">
+                      {active.solution}
+                    </div>
+                  </div>
+
+                  {/* Step 4: Dampak */}
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-mono uppercase tracking-wider text-primary font-medium">
+                      04 · Dampak & Hasil Nyata
+                    </div>
+                    <div className="p-4 rounded-xl bg-primary/[0.04] border border-primary/20 text-sm text-foreground/90 leading-relaxed font-normal">
+                      {active.impact}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{active.long}</p>
-                <div className="flex flex-wrap gap-2">
-                  {active.tech.map((t) => (
-                    <span key={t} className="text-xs font-mono px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/20">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-3 pt-2">
-                  <a href={active.demo} className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_250/0.5)] transition-shadow">
-                    <ExternalLink size={14} /> Live demo
-                  </a>
-                  <a href={active.github} className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium hover:border-primary/40 transition-colors">
-                    <Github size={14} /> Source
-                  </a>
+
+                {/* Action Links */}
+                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/5">
+                  {active.demo && active.demo !== "#" && (
+                    <a
+                      href={active.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-xs font-medium text-primary-foreground hover:bg-gold transition-all"
+                    >
+                      <ExternalLink size={13} /> Live Deployment
+                    </a>
+                  )}
+                  {active.github && (
+                    <a
+                      href={active.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-2 text-xs font-medium text-foreground transition-all"
+                    >
+                      <Github size={13} /> Source Repository
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

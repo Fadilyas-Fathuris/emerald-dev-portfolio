@@ -1,79 +1,68 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "./About";
+import { Briefcase } from "lucide-react";
 
 const items = [
   {
     period: "Januari 2026 — Juni 2026",
     role: "Freelance IT Support",
     org: "Language Center Telkom University, Bandung",
-    desc: "Mengelola setup perangkat teknis untuk tes English Proficiency, diagnosis dan penyelesaian masalah jaringan & hardware, serta memonitor kelancaran tes secara real-time.",
+    desc: "Mengelola konfigurasi teknis perangkat tes English Proficiency, diagnosis dan mitigasi kendala jaringan/hardware, serta monitoring kelancaran operasional tes terkomputerisasi.",
   },
   {
     period: "Desember 2025 — Februari 2026",
     role: "Freelance Web Developer",
     org: "Niskala Core ID, Bandung",
-    desc: "Membangun website Company Profile secara modern menggunakan Vite dan Typescript.",
+    desc: "Mengembangkan website Company Profile modern, responsif, dan teroptimasi SEO menggunakan Vite, React, dan TypeScript.",
   },
   {
     period: "Agustus 2024 — Juli 2025",
     role: "Fullstack Developer Intern",
     org: "Bandung Techno Park, Bandung",
-    desc: "Membangun aplikasi Pengelolaan Bank Sampah dengan Flutter & Flask untuk warga Desa Lengkong, serta website presensi karyawan BTP menggunakan Laravel.",
+    desc: "Membangun aplikasi mobile Bank Sampah menggunakan Flutter & Python Flask untuk warga Desa Lengkong, serta mengembangkan sistem presensi karyawan berbasis web menggunakan Laravel.",
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-32">
+    <section id="experience" className="relative py-28 border-t border-white/5">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeader
-          kicker="04 · Experience"
-          title="A short timeline of"
-          highlight="building things."
+          kicker="Experience"
+          title="Practical experience"
+          highlight="and track record."
         />
 
-        <div className="mt-16 relative">
-          <div className="absolute left-[15px] md:left-1/2 md:-translate-x-px top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
-
-          <div className="space-y-12">
-            {items.map((it, i) => (
-              <motion.div
-                key={it.role}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className={`relative grid md:grid-cols-2 gap-6 items-start ${
-                  i % 2 === 0 ? "" : "md:[direction:rtl]"
-                }`}
-              >
-                {/* dot */}
-                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-4 z-10">
-                  <div className="relative h-3 w-3 rounded-full bg-primary shadow-[0_0_20px_oklch(0.78_0.17_250/0.8)]">
-                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-60" />
-                  </div>
+        <div className="mt-16 space-y-6">
+          {items.map((it, i) => (
+            <motion.div
+              key={it.role + it.period}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 sm:p-8 rounded-2xl bg-[#12141c] border border-white/5 hover:border-white/10 transition-all grid md:grid-cols-12 gap-6 items-start"
+            >
+              <div className="md:col-span-5 space-y-2">
+                <div className="text-xs font-mono text-muted-foreground">
+                  {it.period}
                 </div>
-
-                <div
-                  className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12 [direction:ltr]"}`}
-                >
-                  <div className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
-                    {it.period}
-                  </div>
-                  <div className="font-display font-semibold text-xl">{it.role}</div>
-                  <div className="text-sm text-muted-foreground mt-0.5">{it.org}</div>
+                <h3 className="font-display font-semibold text-lg text-foreground leading-snug">
+                  {it.role}
+                </h3>
+                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <Briefcase size={13} className="text-primary" />
+                  {it.org}
                 </div>
+              </div>
 
-                <div
-                  className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12 [direction:ltr]"}`}
-                >
-                  <div className="glass rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              <div className="md:col-span-7">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {it.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

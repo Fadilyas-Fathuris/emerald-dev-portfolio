@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send, Download, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Download, ArrowUpRight } from "lucide-react";
 import { SectionHeader } from "./About";
 import { useState } from "react";
 
@@ -7,112 +7,103 @@ export function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="relative py-32">
-      <div className="mx-auto max-w-6xl px-6 space-y-24">
+    <section id="contact" className="relative py-28 border-t border-white/5">
+      <div className="mx-auto max-w-6xl px-6 space-y-20">
 
-        {/* CV section */}
-        <div id="cv" className="relative overflow-hidden rounded-3xl glass-strong p-10 md:p-14">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-[100px]" />
-          <div className="absolute inset-0 grid-bg opacity-20" />
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative grid md:grid-cols-2 gap-8 items-center"
-          >
-            <div className="space-y-4">
-              <div className="text-xs font-mono uppercase tracking-[0.2em] text-primary">06 · For recruiters</div>
-              <h2 className="font-display text-4xl sm:text-5xl font-semibold tracking-tighter">
-                The full <span className="text-gradient-blue">resume</span>, one click away.
-              </h2>
-              <p className="text-muted-foreground">
-                A clean, one-page PDF with experience, education, and the technical stack — formatted for ATS and humans alike.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a
-                  href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
-                  download="CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
-                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
-                >
-                  <Download size={16} />
-                  Download CV (PDF)
-                </a>
-                <a
-                  href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium hover:border-primary/40 transition-colors"
-                >
-                  <FileText size={16} />
-                  View online
-                </a>
-              </div>
+        {/* Resume Download Section */}
+        <div className="p-8 sm:p-12 rounded-2xl bg-[#12141c] border border-white/10 grid lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8 space-y-3">
+            <div className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+              Curriculum Vitae
             </div>
+            <h3 className="font-display font-semibold text-2xl sm:text-3xl text-foreground">
+              Tinjau riwayat lengkap dalam format PDF.
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-xl leading-relaxed">
+              Memuat rangkuman terstruktur pengalaman kerja, pendidikan, riwayat projek, dan sertifikasi teknis.
+            </p>
+          </div>
 
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative mx-auto w-full max-w-xs"
+          <div className="lg:col-span-4 flex flex-wrap lg:justify-end gap-3">
+            <a
+              href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
+              download="CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-xs font-medium text-primary-foreground hover:bg-gold transition-all"
             >
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full" />
-              <div className="relative aspect-[3/4] rounded-2xl glass-strong p-5 shadow-[0_30px_80px_-20px_oklch(0_0_0/0.6)]">
-                <div className="h-2 w-24 rounded-full bg-foreground/80 mb-3" />
-                <div className="h-1.5 w-16 rounded-full bg-primary mb-6" />
-                <div className="space-y-2">
-                  {[90, 70, 80, 60, 75, 85, 65, 78, 70, 60].map((w, i) => (
-                    <div key={i} className="h-1 rounded-full bg-foreground/15" style={{ width: `${w}%` }} />
-                  ))}
-                </div>
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-                  <span>Fadilyas_CV.pdf</span>
-                  <span className="text-primary">1.2 MB</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+              <Download size={14} />
+              Download CV (PDF)
+            </a>
+            <a
+              href="/CV_Muhammad_Fadilyas_Fathuris_Haryanto.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 text-xs font-medium text-foreground transition-all"
+            >
+              Lihat Online
+              <ArrowUpRight size={13} />
+            </a>
+          </div>
         </div>
 
-        {/* Contact */}
+        {/* Contact Form & Channels */}
         <div>
-          <SectionHeader kicker="07 · Contact" title="Let's build" highlight="something good." />
+          <SectionHeader
+            kicker="Contact"
+            title="Let's build together."
+            highlight="Get in touch."
+          />
 
-          <div className="mt-16 grid lg:grid-cols-5 gap-8">
+          <div className="mt-16 grid lg:grid-cols-12 gap-12">
+            {/* Direct Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-2 space-y-4"
+              className="lg:col-span-5 space-y-6"
             >
-              <p className="text-muted-foreground leading-relaxed">
-                Currently open to full-time roles, internships, and freelance collaborations.
-                Replies within 24 hours.
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Terbuka untuk peluang kerja full-time, proyek lepas (freelance), maupun diskusi seputar arsitektur sistem dan pengembangan aplikasi.
               </p>
-              <div className="space-y-3 pt-4">
+
+              <div className="space-y-3 pt-2">
                 {[
-                  { icon: Mail, label: "muhfadilyas@gmail.com", href: "mailto:muhfadilyas@gmail.com" },
-                  { icon: Github, label: "github.com/Fadilyas-Fathuris", href: "https://github.com/Fadilyas-Fathuris" },
-                  { icon: Linkedin, label: "linkedin.com/in/muhammad-fadilyas-fathuris-haryanto", href: "https://linkedin.com/in/muhammad-fadilyas-fathuris-haryanto" },
-                ].map((c) => (
+                  {
+                    icon: Mail,
+                    label: "muhfadilyas@gmail.com",
+                    href: "mailto:muhfadilyas@gmail.com",
+                  },
+                  {
+                    icon: Github,
+                    label: "github.com/Fadilyas-Fathuris",
+                    href: "https://github.com/Fadilyas-Fathuris",
+                  },
+                  {
+                    icon: Linkedin,
+                    label: "linkedin.com/in/muhammad-fadilyas",
+                    href: "https://linkedin.com/in/muhammad-fadilyas-fathuris-haryanto",
+                  },
+                ].map((item) => (
                   <a
-                    key={c.label}
-                    href={c.href}
-                    className="group flex items-center gap-3 glass rounded-2xl px-4 py-3 hover:border-primary/40 transition-all"
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 rounded-xl bg-[#12141c] border border-white/5 hover:border-white/15 transition-all text-xs font-mono text-muted-foreground hover:text-foreground group"
                   >
-                    <div className="h-9 w-9 rounded-xl bg-primary/10 text-primary grid place-items-center group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_oklch(0.78_0.17_250/0.3)] transition-all">
-                      <c.icon size={16} />
+                    <div className="w-8 h-8 rounded-lg bg-white/5 text-primary flex items-center justify-center group-hover:text-gold transition-colors">
+                      <item.icon size={15} />
                     </div>
-                    <span className="text-sm">{c.label}</span>
+                    <span>{item.label}</span>
                   </a>
                 ))}
               </div>
             </motion.div>
 
+            {/* Direct Message Form */}
             <motion.form
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               onSubmit={(e) => {
@@ -120,45 +111,49 @@ export function Contact() {
                 setSent(true);
                 setTimeout(() => setSent(false), 3000);
               }}
-              className="lg:col-span-3 glass-strong rounded-3xl p-6 md:p-8 space-y-4"
+              className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#12141c] border border-white/10 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Name" placeholder="Your name" />
-                <Field label="Email" type="email" placeholder="you@company.com" />
+                <div className="space-y-1.5">
+                  <label className="text-xs font-mono text-muted-foreground">Nama</label>
+                  <input
+                    required
+                    placeholder="Nama Anda"
+                    className="w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-xs text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary/50 transition-colors"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-mono text-muted-foreground">Email</label>
+                  <input
+                    required
+                    type="email"
+                    placeholder="email@domain.com"
+                    className="w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-xs text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary/50 transition-colors"
+                  />
+                </div>
               </div>
-              <Field label="Subject" placeholder="Let's talk about…" />
+
               <div className="space-y-1.5">
-                <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Message</label>
+                <label className="text-xs font-mono text-muted-foreground">Pesan / Subjek</label>
                 <textarea
                   required
-                  rows={5}
-                  placeholder="Tell me about the project, role, or idea."
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                  rows={4}
+                  placeholder="Ceritakan tentang proyek, peran, atau peluang kerja sama..."
+                  className="w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-xs text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-primary/50 transition-colors resize-none"
                 />
               </div>
+
               <button
                 type="submit"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-[0_0_40px_oklch(0.78_0.17_250/0.6)] transition-all"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-xs font-medium text-primary-foreground hover:bg-gold transition-all"
               >
-                {sent ? "Message sent ✦" : <>Send message <Send size={14} className="group-hover:translate-x-0.5 transition-transform" /></>}
+                {sent ? "Pesan Terkirim ✓" : <>Kirim Pesan <Send size={13} /></>}
               </button>
             </motion.form>
           </div>
         </div>
+
       </div>
     </section>
-  );
-}
-
-function Field({ label, ...rest }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
-  return (
-    <div className="space-y-1.5">
-      <label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input
-        required
-        {...rest}
-        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
-      />
-    </div>
   );
 }

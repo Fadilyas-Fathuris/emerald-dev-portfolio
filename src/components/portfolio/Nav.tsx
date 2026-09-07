@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
   { href: "#about", label: "About" },
   { href: "#education", label: "Education" },
-  { href: "#projects", label: "Projects" },
+  { href: "#projects", label: "Case Studies" },
   { href: "#experience", label: "Experience" },
   { href: "#stack", label: "Stack" },
   { href: "#contact", label: "Contact" },
@@ -24,74 +24,94 @@ export function Nav() {
 
   return (
     <motion.header
-      initial={{ y: -40, opacity: 0 }}
+      initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled ? "py-3" : "py-5"
       }`}
     >
       <div className="mx-auto max-w-6xl px-6">
         <div
-          className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
-            scrolled ? "glass-strong" : "bg-transparent"
+          className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
+            scrolled
+              ? "bg-[#14161f]/85 backdrop-blur-md border border-white/10 shadow-lg shadow-black/20"
+              : "bg-transparent"
           }`}
         >
-          <a href="#hero" className="flex items-center gap-2 group">
-            <div className="relative h-7 w-7 rounded-md bg-gradient-to-br from-primary to-blue-soft grid place-items-center font-display font-bold text-primary-foreground text-sm shadow-[0_0_20px_oklch(0.78_0.17_250/0.5)]">
+          {/* Logo / Brand */}
+          <a href="#hero" className="flex items-center gap-2.5 group">
+            <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center font-display font-semibold text-xs text-primary transition-colors group-hover:border-primary/40">
               F
-              <div className="absolute inset-0 rounded-md bg-primary/40 blur-md -z-10 group-hover:bg-primary/60 transition-colors" />
-            </div>
-            <span className="font-display font-semibold tracking-tight">fadilyas<span className="text-primary">.</span></span>
+            </span>
+            <span className="font-display font-medium tracking-tight text-sm text-foreground/90 group-hover:text-foreground transition-colors">
+              fadilyas<span className="text-primary font-normal">.dev</span>
+            </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-1 text-sm">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1 text-xs font-medium">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="px-3.5 py-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/[0.04] transition-all"
               >
                 {l.label}
-                <span className="absolute inset-x-3 -bottom-0.5 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </a>
             ))}
           </nav>
 
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground hover:shadow-[0_0_30px_oklch(0.78_0.17_250/0.5)] transition-shadow"
-          >
-            Hire me
-          </a>
+          {/* Action button */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/10 px-4 py-1.5 text-xs font-medium text-foreground transition-all hover:border-white/20"
+            >
+              Get in Touch
+              <ArrowUpRight size={13} className="text-muted-foreground" />
+            </a>
+          </div>
 
+          {/* Mobile hamburger */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden p-1 text-muted-foreground hover:text-foreground"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
+        {/* Mobile menu dropdown */}
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="md:hidden mt-2 glass-strong rounded-2xl p-4 flex flex-col gap-1"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-2 bg-[#14161f]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col gap-1 shadow-2xl"
             >
               {links.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  className="px-3.5 py-2.5 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
+              <div className="pt-2 mt-1 border-t border-white/10">
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="w-full text-center block py-2.5 rounded-xl bg-primary text-primary-foreground font-medium text-xs"
+                >
+                  Get in Touch
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
